@@ -1,0 +1,228 @@
+*, html {text-decoration:none; list-style:none; padding:0; outline:none; font-family: Merriweather,sans-serif; text-align: left; line-height: 1.6; scroll-behavior: smooth; transition: color 1s;}
+
+body {
+	display: grid;
+	grid-gap: 1em;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(8, auto);
+	font-family: Merriweather,sans-serif;
+	grid-auto-rows: min-content;
+}
+
+/*verdelen home*/
+pre-header {grid-row: 1 / 2; grid-column: 2 / 5; text-align: center;}
+#menubox {grid-row: 2 / 3; grid-column: 2 / 5; }
+header {grid-row: 3 / 5; grid-column: 2 / 5; }
+main {grid-row: 5 / 7; grid-column: 2 / 5; }
+footer {grid-row: 8; grid-column: 2 / 5; }
+
+/*onderverdeling grid en flex*/
+nav ul {display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 1em;}
+#social{display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 1em;}
+header {display: grid; grid-template-columns: repeat(2, 1fr);  grid-gap: 1em;}
+#quote {grid-column: 1/span 2; color: #AC6C82; height: fit-content;}
+#quote h5 {text-align: center;}
+#over {grid-column: 1;}
+#foto {grid-column: 2;}
+
+/*interesses*/
+
+.hobbies {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 1em;
+}
+.item {width: 32%; position: relative; }
+#youtube {horiz-align: center;}
+
+/*Ontdek mij*/
+
+/*Flipcards*/
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+	width: calc(33.333% - 1em); /* Responsive width */
+	margin-bottom: 1em;
+	background-color: transparent;
+	border: 1px solid #AC6C82;
+	border-radius: 10px;
+	perspective: 1000px;
+	position: relative; /* Added for aspect ratio control */
+}
+
+/* Aspect ratio hack */
+.flip-card:before {
+	content: '';
+	display: block;
+	padding-top: 100%; /* This creates a 1:1 aspect ratio */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+	transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden; /* Safari */
+	backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+	background-color: #bbb;
+	color: black;
+	border-radius: 10px;
+}
+
+/* Style the back side */
+.flip-card-back {
+	background-color: #F2CD88;
+	color: black;
+	transform: rotateY(180deg);
+	border-radius: 10px;
+}
+
+/*formulier*/
+
+input[type=text], select, textarea {
+	width: 100%;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border: 1px solid #A61F34;
+	border-radius: 4px;
+	resize: vertical;
+
+}
+
+label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+}
+
+input[type=submit] {
+	background-color: #A61F34;
+	color: #D99F7E;
+	padding: 12px;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	width: 100%;
+	font-size: 100%;
+	text-align: center;
+	resize: vertical;
+
+}
+
+input[type=submit]:hover {
+
+	font-size: 100%;
+}
+
+textarea {
+
+	min-height: 100px;
+}
+
+/*nav*/
+nav li a {display: block; height: 50px; line-height: 50px; font-size: 150%; font-weight: 600; text-align: center; border-radius: 20px; background-color: #A61F34; color: #D99F7E; }
+nav li a > i  {font-size: 120%; margin: 0 10px;}
+
+/*font stuff*/
+h1, h2, h3, h4, h5, h6, p {padding: 20px;}
+h1 {font-size: 250%; text-align: center; }
+h2 {font-size: 150%; text-align: center; }
+h3 {font-size: 120%; }
+h4 {font-size: 110%; text-align: center;}
+h5 {font-size: 250%; color: #AC6C82;}
+h6 {font-size: 200%; }
+
+
+/*images*/
+img {width: 100%; border-radius: 10px;}
+
+/*decoratie */
+#formulier {color: #A61F34; }
+body {background-color: #F2CD88;}
+a, h2 {color: #A61F34; border-bottom: 1px solid #A61F34;}
+h1 {color: #AC6C82; font-weight: bolder; border-bottom: 2px solid #AC6C82;}
+h6 {color: #A61F34; font-weight: bold; text-align: center; top: 50%; left: 50%;}
+i {color: #AC6C82;}
+nav li a:hover {color: #D99F7E; background-color: #A61F34; border-radius: 20px; font-size: 200%;}
+nav li a:hover > i {color: #fff;}
+
+/*fix mobile*/
+@media (max-width: 1600px) {
+	body {display: flex; flex-direction: column;}
+	header {display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: (3, 1fr); grid-gap: 1em;}
+	#quote {grid-row: 1 / 2 ; grid-column: 1 / 4 ; align-items: center;}
+	#over {grid-row: 2 / 3 ; grid-column: 1 / 2; }
+	#foto {grid-row: 2 / 3; grid-column: 2 / 4;}
+	h5 {font-size: 250%; color: #AC6C82;}
+}
+
+@media (max-width: 900px) {
+
+	body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	header {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.hobbies {
+		display: flex;
+		flex-direction: column;
+		justify-content: normal
+	}
+	.item {width: 100%}
+}
+
+/*hamburger menu*/
+
+/*Ruimte rond knoppen*/
+#menubox {padding: 1em;}
+nav ul li a {margin: 20px; padding: 20px; display: block; text-align: center; border-radius: 20px;}
+
+/*Navigatie*/
+nav {display:block;}
+
+/*verbergen checkbox*/
+input[type=checkbox] {display:none;}
+#hamburger {display:none;}
+
+@media only screen and (max-width: 600px) {
+	/*Verberg of toon navigatie op smartphone als er op de checkbox wordt geklikt*/
+	input[type=checkbox] ~ nav {display:none;}
+	input[type=checkbox]:checked ~ nav {display:block;}
+
+	/*toont de burger*/
+	#hamburger {display:block;}
+	#hamburger {color: #A61F34; font-size: 200%; font-weight: bold;}
+
+	/*Zet de menu items in de nav ul onder elkaar*/
+	nav ul {display: block;}
+	nav ul li a {margin: 10px 0;}
+	nav li a {display: block; height: 20px; line-height: 20px; font-size: 120%; font-weight: 600; text-align: center; border-radius: 20px; background-color: #A61F34; color: #D99F7E; }
+	nav li a > i  {font-size: 120%; margin: 0 10px;}
+}
